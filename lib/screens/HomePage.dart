@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'Settings/SettingsScreen.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   int _selectedIndex = 1;
   final _widgetOptions = [
     Text('Index 0: Home'),
     Text('Index 1: Business'),
-    Text('Index 2: School'),
+    SettingsScreen(),
   ];
 
   @override
