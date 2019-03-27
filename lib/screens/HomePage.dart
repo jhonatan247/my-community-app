@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Settings/SettingsScreen.dart';
+import 'Events/EventsScreen.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -12,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 2;
   final _widgetOptions = [
     Text('Index 0: Home'),
-    Text('Events Screen'),
+    EventsScreen(),
     SettingsScreen(),
   ];
 
