@@ -10,7 +10,6 @@ class PersonalChatBar extends StatefulWidget implements PreferredSizeWidget {
       _PersonalChatBarState(properties: _properties);
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize {
     return Size.fromHeight(56.0);
   }

@@ -2,18 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:my_community/ui/personal_chat_bar.dart';
+import 'package:my_community/ui/group_chat_bar.dart';
 
 const String _name = "User Name";
 
 class Chat extends StatefulWidget {
+  final Map<String, dynamic> _properties;
+
+  Chat({@required properties}) : _properties = properties;
+
   @override
-  _ChatState createState() => _ChatState();
+  _ChatState createState() => _ChatState(properties: _properties);
 }
 
 class _ChatState extends State<Chat> with TickerProviderStateMixin {
   final List<ChatMessage> _messages = <ChatMessage>[];
   final TextEditingController _textController = TextEditingController();
   bool _isComposing = false;
+  final Map<String, dynamic> _properties;
+
+  _ChatState({@required properties}) : _properties = properties;
 
   void _handleSubmited(String text) {
     _textController.clear();
@@ -72,10 +80,10 @@ class _ChatState extends State<Chat> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PersonalChatBar(
+      appBar: GroupChatBar(
         properties: {
-          "friendName": "Johnny Depp",
-          "imageUrl": "images/johnny.jpg"
+          "groupName": "Puppies",
+          "imageUrl": "images/puppies.jpg"
         },
       ),
       body: Container(
