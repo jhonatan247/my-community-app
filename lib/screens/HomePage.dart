@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 2;
   final _widgetOptions = [
     Text('Index 0: Home'),
-    Text('Index 1: Business'),
+    Text('Events Screen'),
     SettingsScreen(),
   ];
 
