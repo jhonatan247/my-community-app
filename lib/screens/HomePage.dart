@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 2;
   final _widgetOptions = [
     Text('Index 0: Home'),
     Text('Index 1: Business'),
