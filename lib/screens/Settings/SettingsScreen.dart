@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'userInformation.dart';
+import 'buttons.dart';
 
 class SettingsScreen extends StatelessWidget{
 
@@ -14,7 +15,7 @@ class SettingsScreen extends StatelessWidget{
               child: Center(
                 child: profilePicture
               ),
-              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
             ),
             Container(
               child: Center(
@@ -24,6 +25,12 @@ class SettingsScreen extends StatelessWidget{
             Container(
               child: Center(
                 child: profileLocation,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Center(
+                child: editProfile,
               ),
             ),
           ],

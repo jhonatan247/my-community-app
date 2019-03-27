@@ -12,7 +12,7 @@ final topBar = new AppBar(
 );
 var profilePicture = Icon(
   Icons.account_circle,
-  size: 270,
+  size: 250,
 );
 var profileName = Text(
     'Santiago Velandia',
@@ -24,7 +24,7 @@ var profileName = Text(
 var profileLocation = Text(
   'Colombia',
   style: TextStyle(
-    fontWeight: FontWeight.w200,
+    fontWeight: FontWeight.w300,
     fontSize: 19
   ),
 );
