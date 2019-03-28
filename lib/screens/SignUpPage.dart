@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_comminity/screens/SignUpPage.dart';
+import 'package:my_comminity/screens/LoginPage.dart';
 
-class LoginPage extends StatefulWidget {
-  static String tag = 'login-pahe';
-  LoginPage({Key key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  static String tag = 'signUp-page';
+  SignUpPage({Key key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
+  final _currentName = TextEditingController();
+  final _currentLastName = TextEditingController();
   final _currentEmail = TextEditingController();
   final _currentPassword = TextEditingController();
+  final _currentConfirmationPassword = TextEditingController();
   bool _isChecked = false;
 
   void onChanged(bool value){
@@ -24,16 +27,16 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context){
     SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle.dark.copyWith(
-        statusBarColor: Colors.blue, //or set color with: Color(0xFF0000FF)
-      )
+        SystemUiOverlayStyle.dark.copyWith(
+          statusBarColor: Colors.blue, //or set color with: Color(0xFF0000FF)
+        )
     );
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Colors.transparent,
-        elevation: 0.0,
-        iconTheme: IconThemeData(color: Colors.blue)
+          backgroundColor:Colors.transparent,
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: Colors.blue)
       ),
       body: Container(
         width: double.infinity,
@@ -46,16 +49,15 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.only(
                       top: 8.0,
-                      bottom: 80.0
+                      bottom: 40.0
                   ),
                   child: Text(
-                    "Login Now",
+                    "Sign Up",
                     style: TextStyle(fontSize: 30.0),
                   ),
                 ),
-
               ],
-            ),
+            ), //Sign Up Title
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
             SizedBox(
-              height: 15.0,
+              height: 30.0,
             ),
 
             Row(
@@ -141,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom:18.0),
                   child: Text(
-                    "or login with email",
+                    "or sign up with email",
                     style: TextStyle(
                         fontSize: 14.0,
                         color: Colors.grey,
@@ -154,8 +156,52 @@ class _LoginPageState extends State<LoginPage> {
 
             Padding(
               padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                  vertical: 0.0
+              ),
+              child: TextFormField(
+                controller: _currentName,
+                autofocus: false,
+                decoration: InputDecoration(
+                  hintText: 'Name',
+                  contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0)
+                  ),
+                ),
+              ),
+            ), //nameField
+
+            SizedBox(
+              height: 15.0,
+            ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 20.0,
-                vertical: 0.0
+                vertical: 0.0,
+              ),
+              child: TextFormField(
+                controller: _currentLastName,
+                autofocus: false,
+                decoration: InputDecoration(
+                  hintText: 'Last Name',
+                  contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0)
+                  ),
+                ),
+              ),
+            ), //lastNameField
+
+            SizedBox(
+              height: 20.0,
+            ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                  vertical: 0.0
               ),
               child: TextFormField(
                 controller: _currentEmail,
@@ -165,7 +211,7 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: 'Email',
                   contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0)
+                      borderRadius: BorderRadius.circular(10.0)
                   ),
                 ),
               ),
@@ -198,7 +244,30 @@ class _LoginPageState extends State<LoginPage> {
               height: 20.0,
             ),
 
-            Stack(
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+                vertical: 0.0,
+              ),
+              child: TextFormField(
+                controller: _currentConfirmationPassword,
+                autofocus: false,
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: 'Confirm Password',
+                  contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0)
+                  ),
+                ),
+              ),
+            ), //passwordConfirmationField
+
+            SizedBox(
+              height: 20.0,
+            ),
+
+            Row(
               children: <Widget>[
                 Container(
                   child: Checkbox(
@@ -210,11 +279,10 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   child: Padding(
                     padding: const EdgeInsets.only(
-                        top:15.0,
-                        left: 50
+                        top:5.0,
                     ),
                     child: Text(
-                      "Remember me",
+                      "I agree with ",
                       style: TextStyle(
                           fontSize: 17.0,
                           color: Colors.grey[600],
@@ -225,7 +293,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 Container(
-                  padding: const EdgeInsets.only(top:15.0, right: 20),
+                  padding: const EdgeInsets.only(top:5.0),
                   alignment: Alignment.centerRight,
                   child: GestureDetector(
                     onTap: (){
@@ -237,10 +305,10 @@ class _LoginPageState extends State<LoginPage> {
                       );
                     },
                     child: Text(
-                      "Forgot Password?",
+                      "Private Policy",
                       style: TextStyle(
                           fontSize: 17.0,
-                          color: Colors.grey[600],
+                          color: Colors.grey[500],
                           fontWeight: FontWeight.normal
                       ),
                     ),
@@ -255,17 +323,17 @@ class _LoginPageState extends State<LoginPage> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(
-                      left: 20.0,
-                      right: 20.0,
-                      top: 30.0
+                        left: 20.0,
+                        right: 20.0,
+                        top: 30.0
                     ),
                     child: GestureDetector(
                       onTap: (){
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginPage()
-                          )
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage()
+                            )
                         );
                       },
                       child: Container(
@@ -276,10 +344,10 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Text(
-                          "Login",
+                          "Sign Up",
                           style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.white
+                              fontSize: 20.0,
+                              color: Colors.white
                           ),
                         ),
                       ),
@@ -288,49 +356,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),//Login Button
-
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(bottom:18.0),
-                    child: Text(
-                      "Don't have an account?  ",
-                      style: TextStyle(
-                        fontSize: 17.0,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.normal
-                      ),
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SignUpPage()
-                          ),
-                        );
-                      },
-                      child : Padding(
-                        padding: const EdgeInsets.only(bottom:18.0),
-                        child: Text(
-                          "Sign Up",
-                          style: TextStyle(
-                            fontSize: 17.0,
-                            color: Colors.blue[600],
-                            fontWeight: FontWeight.normal
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ) //Sign Up Hyperlink
           ],
         ),
       ),
