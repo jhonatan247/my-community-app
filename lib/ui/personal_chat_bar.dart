@@ -28,14 +28,18 @@ class _PersonalChatBarState extends State<PersonalChatBar> {
         child: Row(
           children: <Widget>[
             Container(
-              child: Material(
-                child: Image.asset(
-                  _properties["imageUrl"],
-                  fit: BoxFit.cover,
-                ),
-                shape: CircleBorder(),
-                clipBehavior: Clip.antiAlias,
-              ),
+              child: _properties["imageUrl"] == null
+                  ? CircleAvatar(
+                      child: Icon(Icons.person, color: Colors.black38),
+                    )
+                  : Material(
+                      child: Image.asset(
+                        _properties["imageUrl"],
+                        fit: BoxFit.cover,
+                      ),
+                      shape: CircleBorder(),
+                      clipBehavior: Clip.antiAlias,
+                    ),
               constraints: BoxConstraints(
                   minHeight: 35.0,
                   minWidth: 35.0,

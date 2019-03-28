@@ -27,7 +27,7 @@ class _GroupChatBarState extends State<GroupChatBar> {
         Container(
           child: Material(
             child: Image.asset(
-              _properties["imageUrl"],
+              _properties["bannerImageUrl"],
               fit: BoxFit.cover,
             ),
           ),
@@ -51,7 +51,6 @@ class _GroupChatBarState extends State<GroupChatBar> {
                     style: TextStyle(
                       fontSize: 14.0,
                       color: Colors.white,
-                      fontFamily: "bold",
                     ),
                   ),
                   alignment: Alignment.bottomLeft,

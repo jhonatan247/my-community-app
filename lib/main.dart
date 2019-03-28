@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:my_community/ui/chat.dart';
 
+Map<String, dynamic> groupProperties = {"chatType" : "group", "bannerImageUrl" : "images/puppies.jpg", "userImageUrl" : "images/johnny.jpg" , "groupName" : "Puppies"};
+Map<String, dynamic> personalProperties = {"imageUrl" : "images/johnny.jpg", "userImageUrl" : "images/johnny.jpg", "friendName" : "Johny Depp", "owner" : null};
+
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My Community',
       routes: {
         '/': (context) => MyScaffold(),
-        '/second': (context) => Chat(),
+        '/second': (context) => Chat(
+              properties: personalProperties,
+            ),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
