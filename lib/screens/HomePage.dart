@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Settings/SettingsScreen.dart';
 
 class HomePage extends StatefulWidget {
+  static String tag = 'home-page';
   HomePage({Key key}) : super(key: key);
 
   @override
@@ -18,9 +19,26 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    final profileImage = Hero(
+      tag: 'hero',
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: CircleAvatar(
+          radius: 72.0,
+          backgroundColor: Colors.transparent,
+          backgroundImage: AssetImage('assets/test.jpg'),
+        ),
+      ),
+    );
+
     return Scaffold(
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+
+        child: Column(children: <Widget>[
+          profileImage,
+          _widgetOptions.elementAt(_selectedIndex),
+        ],)
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
