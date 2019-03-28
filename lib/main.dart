@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => MyScaffold(),
         '/second': (context) => Chat(
-              properties: personalProperties,
+              properties: groupProperties,
             ),
       },
       theme: ThemeData(
