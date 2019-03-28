@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'userInformation.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'eventsNearbyList.dart';
 
 class EventsScreen extends StatefulWidget{
 
@@ -51,7 +52,7 @@ class _EventsScreenState extends State<EventsScreen>{
               )
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+              margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
               child: Center(
                 child: Text(
                   'Chats in this location:',
@@ -62,11 +63,7 @@ class _EventsScreenState extends State<EventsScreen>{
                 ),
               ),
             ),
-            Row(
-              children: <Widget>[
-
-              ],
-            ),
+            Flexible(child: eventsNearbyList),
           ],
         ),
       ),
