@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Settings/SettingsScreen.dart';
 import 'Events/EventsScreen.dart';
-import 'package:my_comminity/mapsAndLocation/GetLocationPage.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -13,7 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 2;
   final _widgetOptions = [
-    GetLocationPage(),
+    Text('Chat Page'),
     EventsScreen(),
     SettingsScreen(),
   ];
