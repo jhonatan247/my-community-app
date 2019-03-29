@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_comminity/screens/SignUpPage.dart';
+import 'package:my_community/screens/SignUpPage.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-pahe';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_comminity/screens/LoginPage.dart';
+import 'package:my_community/screens/LoginPage.dart';
 
 class SignUpPage extends StatefulWidget {
   static String tag = 'signUp-page';
