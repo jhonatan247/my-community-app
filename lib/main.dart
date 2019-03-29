@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        primaryColor: Colors.grey[100],
+        primaryColorBrightness: Brightness.light,
       ),
       home: LoginPage(),
       routes: routes,
